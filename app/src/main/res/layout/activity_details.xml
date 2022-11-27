@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
-        android:textColor="#FF5722"
+        android:textColor="#8BC34A"
         android:textSize="30dp"
         app:layout_constraintBottom_toTopOf="@+id/cryptoPrice"
         app:layout_constraintEnd_toEndOf="parent"
