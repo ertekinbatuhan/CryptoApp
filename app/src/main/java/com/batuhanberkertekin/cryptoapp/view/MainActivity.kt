@@ -31,24 +31,27 @@ class MainActivity : AppCompatActivity() {
      allCrypto()
 
     }
+       //Sürekli yapı degiştigi için sürekli güncel veriler geliyor.
+    //Firebase farkı budur.
 
     fun allCrypto(){
         crypto.addValueEventListener(object : ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                   arrayList.clear()
-
+                 // childiren verilerimiz oluyor.
                 for(i in snapshot.children){
-
+                   // Firebasedeki verileri cryptoya modelle casting yapıyoruz dönüştürme
                     val crypto = i.getValue(Crypto::class.java)
 
 
                     if(crypto !=null){
-
+                     //arraya ekliyoruz
                        arrayList.add(crypto)
 
                     }
 
                 }
+                //sürekli veri güncellememizi sağlıyor
                 myadapter.notifyDataSetChanged()
             }
 

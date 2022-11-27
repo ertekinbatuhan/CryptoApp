@@ -1,12 +1,15 @@
 package com.batuhanberkertekin.cryptoapp.adapter
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.batuhanberkertekin.cryptoapp.R
 import com.batuhanberkertekin.cryptoapp.data.Crypto
+import com.batuhanberkertekin.cryptoapp.view.DetailsActivity
+import kotlinx.android.synthetic.main.activity_main.view.*
 import kotlinx.android.synthetic.main.recyler_row.view.*
 
 class CryptoAdapter(private val mcontext : Context , private val myList : List<Crypto>)  : RecyclerView.Adapter<CryptoAdapter.CryptoObject>()
@@ -27,6 +30,12 @@ class CryptoAdapter(private val mcontext : Context , private val myList : List<C
 
         holder.itemView.currencyText.text = getList.currency
         holder.itemView.priceText.text = getList.price
+        holder.itemView.setOnClickListener {
+            val intent = Intent(mcontext,DetailsActivity::class.java)
+            intent.putExtra("key",getList)
+            holder.itemView.context.startActivity(intent)
+
+        }
     }
 
     override fun getItemCount(): Int {
